@@ -99,7 +99,7 @@ local function addElement(upvalueLog, upvalue, index, value, temporary)
         elementLog.Border.ImageColor3 = constants.tempBorderColor
     end
 
-    print(oh.Constants.Types[elementIndexType])
+    print(elementIndexType)
     elementLog.Name = indexText
     elementLog.Index.Label.Text = indexText
     elementLog.Value.Label.Text = toString(value)
