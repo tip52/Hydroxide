@@ -6,6 +6,7 @@ end
 
 local web = true
 local user = "tip52" -- change if you're using a fork
+local user2 = "Upbolt"
 local branch = "revision"
 local importCache = {}
 
@@ -109,7 +110,7 @@ environment.oh = {
             string = "rbxassetid://4666593882",
             number = "rbxassetid://4666593882",
             boolean = "rbxassetid://4666593882",
-            userdata = "rbxassetid://4666594723",
+            data = "rbxassetid://4666594723",
             vector = "rbxassetid://4666594723",
             ["function"] = "rbxassetid://4666593447",
             ["thread"] = "rbxassetid://4666593447",
@@ -185,7 +186,7 @@ end
 useMethods(globalMethods)
 
 local HttpService = game:GetService("HttpService")
-local releaseInfo = HttpService:JSONDecode(game:HttpGetAsync("https://api.github.com/repos/" .. user .. "/Hydroxide/releases"))[1]
+local releaseInfo = HttpService:JSONDecode(game:HttpGetAsync("https://api.github.com/repos/" .. user2 .. "/Hydroxide/releases"))[1]
 
 if readFile and writeFile then
     local hasFolderFunctions = (isFolder and makeFolder) ~= nil
