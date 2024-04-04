@@ -67,12 +67,20 @@ local function userdataValue(data)
         return dataType .. ".now()"
     elseif dataType == "PathWaypoint" then
         local split = tostring(data):split('}, ')
+        local new 
+        if split[1] and split[2] then
         local vector = split[1]:gsub('{', "Vector3.new(")
-        return dataType .. ".new(" .. vector .. "), " .. split[2] .. ')'
+        new = dataType .. ".new(" .. vector .. "), " .. split[2] .. ')'
+        end
+        return new
     elseif dataType == "Ray" or dataType == "Region3" then
         local split = tostring(data):split('}, ')
+        local new
+        if split[1] then
         local vprimary = split[1]:gsub('{', "Vector3.new(")
-        return dataType .. ".new(" .. vprimary .. ')'
+            new = dataType .. ".new(" .. vprimary .. ')'
+        end
+        return new
     elseif dataType == "ColorSequence" or dataType == "NumberSequence" then 
         return dataType .. ".new(" .. tableToString(data.Keypoints) .. ')'
     elseif dataType == "ColorSequenceKeypoint" then
