@@ -29,8 +29,10 @@ end
 
 local function searchClosure(script, name, upvalueIndex, constants)
     for _i, v in pairs(getGc()) do
-        local parentScript = rawget(getfenv(v), "script")
-
+        local parentScript
+        pcall(function()
+        parentScript = rawget(getfenv(v), "script")
+            end)
         
         if type(v) == "function" and 
             isLClosure(v) and 
